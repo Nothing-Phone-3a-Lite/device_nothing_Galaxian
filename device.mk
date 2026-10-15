@@ -217,6 +217,10 @@ include hardware/mediatek/configs/properties/vendor_logtag.mk
 PRODUCT_PACKAGES += \
     nt-fwk.Galaxian
 
+# Device controls
+PRODUCT_PACKAGES += \
+    GalaxianParts
+
 PRODUCT_BOOT_JARS += \
     nt-fwk.Galaxian
 
