@@ -11,7 +11,7 @@ import org.lineageos.settings.galaxian.adaptive.AdaptiveService
 private const val PAGE = "org.lineageos.settings.galaxian.PAGE"
 private const val PENDING_REVIEW = "pending_review"
 private val proposalKey = AdaptiveService.EXTRA_PROPOSAL_ID
-private val pages = listOf("cpu", "gpu", "memory", "battery", "temperature", "adaptive")
+private val pages = listOf("cpu", "gpu", "memory", "battery", "temperature", "adaptive", "network")
 private var cases = 0
 
 private fun test(name: String, body: () -> Unit) {
@@ -146,10 +146,19 @@ fun main() {
         expect(ScreenProbe.reviewId == "A", "Review ID was lost")
         expect(activity.launched.isEmpty() && activity.finishCount == 0, "Review request performed navigation")
     }
-    test("non-Adaptive pages ignore proposal extras") {
-        val activity = child("gpu", "A")
-        expect(ScreenProbe.page == "gpu" && ScreenProbe.reviewId == null, "Proposal leaked into unrelated page")
-        expect(activity.performSave().getString(PENDING_REVIEW) == null, "Unrelated page persisted a proposal")
+    for (page in pages.filter { it != "adaptive" }) {
+        test("$page ignores Adaptive proposal extras") {
+            val activity = child(page, "A")
+            expect(ScreenProbe.page == page && ScreenProbe.reviewId == null, "Proposal leaked into unrelated page")
+            expect(activity.performSave().getString(PENDING_REVIEW) == null, "Unrelated page persisted a proposal")
+        }
+    }
+    test("Network survives Activity recreation without opening an Adaptive review") {
+        val first = child("network", "ignored")
+        val saved = first.performSave()
+        ScreenProbe.reset()
+        child("adaptive", "stale", saved)
+        expect(ScreenProbe.page == "network" && ScreenProbe.reviewId == null, "Restored network route was replaced")
     }
     test("unconsumed review survives Activity recreation") {
         val first = child("adaptive", "A")

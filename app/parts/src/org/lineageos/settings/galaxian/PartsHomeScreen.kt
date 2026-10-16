@@ -14,6 +14,7 @@ import androidx.compose.material.icons.filled.BatteryChargingFull
 import androidx.compose.material.icons.filled.Memory
 import androidx.compose.material.icons.filled.Speed
 import androidx.compose.material.icons.filled.Smartphone
+import androidx.compose.material.icons.filled.Wifi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -71,6 +72,12 @@ fun PartsHomeScreen(onNavigate: (String) -> Unit) {
             }
             item {
                 PartsPreferenceGroup(title = stringResource(R.string.parts_device_status)) {
+                    PartsPreference(
+                        title = stringResource(R.string.network_title),
+                        summary = stringResource(R.string.network_home_summary),
+                        icon = Icons.Filled.Wifi,
+                        onClick = { onNavigate("network") },
+                    )
                     PartsPreference(
                         title = stringResource(R.string.parts_temperature_title),
                         summary = stringResource(R.string.parts_temperature_summary),

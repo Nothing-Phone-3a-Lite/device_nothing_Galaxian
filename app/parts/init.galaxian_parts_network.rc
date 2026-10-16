@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: Apache-2.0
+
+# Advertise the control only after init has loaded this file. Keep the kernel default.
+on property:sys.boot_completed=1
+    setprop sys.galaxianparts.tcp_ready 1
+
+on property:sys.galaxianparts.tcp_congestion=reno
+    write /proc/sys/net/ipv4/tcp_congestion_control reno
+
+on property:sys.galaxianparts.tcp_congestion=cubic
+    write /proc/sys/net/ipv4/tcp_congestion_control cubic
+
+on property:sys.galaxianparts.tcp_congestion=bic
+    write /proc/sys/net/ipv4/tcp_congestion_control bic
+
+on property:sys.galaxianparts.tcp_congestion=westwood
+    write /proc/sys/net/ipv4/tcp_congestion_control westwood
+
+on property:sys.galaxianparts.tcp_congestion=htcp
+    write /proc/sys/net/ipv4/tcp_congestion_control htcp
+
+on property:sys.galaxianparts.tcp_congestion=bbr
+    write /proc/sys/net/ipv4/tcp_congestion_control bbr
+
+on property:sys.galaxianparts.tcp_congestion=bbr3
+    write /proc/sys/net/ipv4/tcp_congestion_control bbr3

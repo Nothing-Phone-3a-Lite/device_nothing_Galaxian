@@ -34,6 +34,7 @@ android_app {
         "privapp-permissions-org.lineageos.settings.galaxian.xml",
         "init.galaxian_parts_cpu.rc",
         "init.galaxian_parts_gpu.rc",
+        "init.galaxian_parts_network.rc",
         "galaxian_parts_thermal_control",
     ],
 }
@@ -57,4 +58,11 @@ prebuilt_etc {
     src: "init.galaxian_parts_gpu.rc",
     sub_dir: "init",
     vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.galaxian_parts_network.rc",
+    src: "init.galaxian_parts_network.rc",
+    sub_dir: "init",
+    system_ext_specific: true,
 }

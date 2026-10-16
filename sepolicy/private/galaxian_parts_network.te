@@ -1,0 +1,22 @@
+# SPDX-License-Identifier: Apache-2.0
+
+system_internal_prop(galaxianparts_tcp_request_prop)
+system_internal_prop(galaxianparts_tcp_status_prop)
+set_prop(galaxian_parts_app, galaxianparts_tcp_request_prop)
+get_prop(galaxian_parts_app, galaxianparts_tcp_status_prop)
+
+neverallow { domain -init -galaxian_parts_app } galaxianparts_tcp_request_prop:property_service set;
+neverallow { domain -init } galaxianparts_tcp_status_prop:property_service set;
+
+# Retain the platform proc_net_type rules for init and existing network services.
+type proc_galaxian_tcp_control, fs_type, proc_type, proc_net_type;
+type proc_galaxian_tcp_available, fs_type, proc_type, proc_net_type;
+allow galaxian_parts_app { proc_galaxian_tcp_control proc_galaxian_tcp_available }:file r_file_perms;
+
+# Android enforces the app permissions before returning network and SIM state.
+allow galaxian_parts_app {
+    connectivity_service
+    wifi_service
+    radio_service
+    registry_service
+}:service_manager find;

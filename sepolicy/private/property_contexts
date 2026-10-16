@@ -1,2 +1,6 @@
 sys.galaxianparts.thermal_disabled u:object_r:galaxianparts_thermal_request_prop:s0 exact bool
 init.svc.thermal_core u:object_r:galaxianparts_thermal_daemon_prop:s0 exact string
+
+# The app requests one fixed init action; it cannot write network sysctls itself.
+sys.galaxianparts.tcp_congestion u:object_r:galaxianparts_tcp_request_prop:s0 exact enum reno cubic bic westwood htcp bbr bbr3
+sys.galaxianparts.tcp_ready u:object_r:galaxianparts_tcp_status_prop:s0 exact bool
