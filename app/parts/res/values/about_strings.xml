@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="about_os_version">Android %1$s</string>
+    <string name="about_gigabytes">%1$d GB</string>
+    <string name="about_image_desc">Nothing Phone (3a) Lite</string>
+    <string name="about_spec_processor">Processor</string>
+    <string name="about_spec_processor_value">MediaTek Dimensity 7300 Pro 5G</string>
+    <string name="about_spec_camera">Camera</string>
+    <string name="about_spec_camera_value">Rear: 50MP + 8MP + macro camera\nFront: 16MP</string>
+    <string name="about_spec_ram">RAM</string>
+    <string name="about_spec_ram_value">8GB + 2GB</string>
+    <string name="about_spec_storage">Storage</string>
+    <string name="about_spec_storage_value">256 GB</string>
+    <string name="about_spec_battery">Battery</string>
+    <string name="about_spec_battery_value">5000 mAh</string>
+    <string name="about_spec_screen">Screen</string>
+    <string name="about_spec_screen_value">6.77" Flexible AMOLED</string>
+</resources>
