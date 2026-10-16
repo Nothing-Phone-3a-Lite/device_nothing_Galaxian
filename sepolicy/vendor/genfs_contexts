@@ -79,6 +79,14 @@ genfscon sysfs /devices/system/cpu/cpu6/online u:object_r:vendor_galaxian_cpu_co
 genfscon sysfs /devices/system/cpu/cpu7/online u:object_r:vendor_galaxian_cpu_control:s0
 genfscon sysfs /devices/system/cpu/cpufreq/policy0/scaling_locked_limits u:object_r:vendor_galaxian_cpu_lock:s0
 genfscon sysfs /devices/system/cpu/cpufreq/policy4/scaling_locked_limits u:object_r:vendor_galaxian_cpu_lock:s0
+genfscon sysfs /devices/system/cpu/cpufreq/policy0/scaling_governor u:object_r:sysfs_galaxian_tuning:s0
+genfscon sysfs /devices/system/cpu/cpufreq/policy0/scaling_available_governors u:object_r:sysfs_galaxian_tuning:s0
+genfscon sysfs /devices/system/cpu/cpufreq/policy4/scaling_governor u:object_r:sysfs_galaxian_tuning:s0
+genfscon sysfs /devices/system/cpu/cpufreq/policy4/scaling_available_governors u:object_r:sysfs_galaxian_tuning:s0
+genfscon sysfs /devices/system/cpu/cpufreq/schedutil/rate_limit_us u:object_r:sysfs_galaxian_tuning:s0
+genfscon sysfs /class/devfreq u:object_r:sysfs_galaxian_tuning:s0
+genfscon sysfs /block u:object_r:sysfs_galaxian_tuning:s0
+genfscon sysfs /kernel/bore u:object_r:sysfs_galaxian_tuning:s0
 genfscon proc /gpufreqv2/gpufreq_status u:object_r:vendor_galaxian_gpu_status:s0
 genfscon proc /gpufreqv2/gpu_working_opp_table u:object_r:vendor_galaxian_gpu_status:s0
 genfscon proc /gpufreqv2/fix_target_opp_index u:object_r:vendor_galaxian_gpu_control:s0

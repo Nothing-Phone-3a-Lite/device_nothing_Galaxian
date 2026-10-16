@@ -14,6 +14,7 @@ import androidx.compose.material.icons.filled.BatteryChargingFull
 import androidx.compose.material.icons.filled.Memory
 import androidx.compose.material.icons.filled.Speed
 import androidx.compose.material.icons.filled.Smartphone
+import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material.icons.filled.Wifi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -67,6 +68,12 @@ fun PartsHomeScreen(onNavigate: (String) -> Unit) {
                         summary = stringResource(R.string.parts_memory_summary),
                         icon = Icons.Filled.Memory,
                         onClick = { onNavigate("memory") },
+                    )
+                    PartsPreference(
+                        title = stringResource(R.string.tuning_title),
+                        summary = stringResource(R.string.tuning_home_summary),
+                        icon = Icons.Filled.Tune,
+                        onClick = { onNavigate("tuning") },
                     )
                 }
             }

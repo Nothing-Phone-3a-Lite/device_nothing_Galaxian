@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: Apache-2.0
+
+# Tuning controls: governors, I/O, VM/uclamp presets and diagnostics.
+type sysfs_galaxian_tuning, fs_type, sysfs_type;
+allow galaxian_parts_app sysfs_galaxian_tuning:file rw_file_perms;
+
+# Preserve existing readers of the relabelled nodes.
+allow { domain -isolated_app_all } sysfs_galaxian_tuning:file r_file_perms;

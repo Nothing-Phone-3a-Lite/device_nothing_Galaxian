@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: Apache-2.0
+
+system_internal_prop(galaxianparts_vm_request_prop)
+system_internal_prop(galaxianparts_uclamp_request_prop)
+system_internal_prop(galaxianparts_tuning_status_prop)
+set_prop(galaxian_parts_app, galaxianparts_vm_request_prop)
+set_prop(galaxian_parts_app, galaxianparts_uclamp_request_prop)
+get_prop(galaxian_parts_app, galaxianparts_tuning_status_prop)
+
+neverallow { domain -init -galaxian_parts_app } galaxianparts_vm_request_prop:property_service set;
+neverallow { domain -init -galaxian_parts_app } galaxianparts_uclamp_request_prop:property_service set;
+neverallow { domain -init } galaxianparts_tuning_status_prop:property_service set;
+
+# Read-only VM, uclamp and stall accounting. Init alone writes the presets.
+type proc_galaxian_tuning, fs_type, proc_type;
+allow galaxian_parts_app proc_galaxian_tuning:file r_file_perms;

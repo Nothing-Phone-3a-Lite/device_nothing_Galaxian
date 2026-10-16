@@ -124,6 +124,24 @@ together for long translations and large fonts. The exact proc node has a dedica
 SELinux label; app code limits writes to DEBUG, while SELinux limits file access,
 not individual rows. GPU operation still needs verification on the physical phone.
 
+## Tuning lab
+
+The Tuning page collects the remaining OriginTune-class controls in one lab with
+CPU, GPU, I/O, Memory, System and Profiles tabs. CPU governors and the shared
+schedutil rate limit, block-device schedulers and read-ahead sizes are written
+directly to their labelled sysfs nodes with readback. VM and uclamp presets use
+fixed init actions (`init.galaxian_parts_tuning.rc`) verified by readback, like
+the TCP selector. GPU governor, BORE and LMK-minfree support is probed at
+runtime: Galaxian's MediaTek GPUFREQ interface has no governor node, the 6.1
+kernel carries no BORE scheduler and the in-kernel LMK driver is gone, so those
+sections say the kernel does not support them instead of showing invented
+values. LMK reports the lmkd configuration it can read. ZRAM sizing stays in
+init; live statistics remain on the RAM page. Diagnostics shows load average
+and PSI stalls read-only. Profiles exports the current CPU, GPU, TCP, memory,
+clamp and I/O settings as versioned JSON and imports them section by section
+with a per-section report. Everything resets at reboot; there is no generic
+sysctl editor.
+
 ## Thermal fix
 
 The old vendor init action referenced the private `init.svc.thermal_core`

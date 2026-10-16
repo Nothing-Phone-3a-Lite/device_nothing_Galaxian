@@ -11,7 +11,7 @@ import org.lineageos.settings.galaxian.adaptive.AdaptiveService
 private const val PAGE = "org.lineageos.settings.galaxian.PAGE"
 private const val PENDING_REVIEW = "pending_review"
 private val proposalKey = AdaptiveService.EXTRA_PROPOSAL_ID
-private val pages = listOf("cpu", "gpu", "memory", "battery", "temperature", "adaptive", "network")
+private val pages = listOf("cpu", "gpu", "memory", "battery", "temperature", "adaptive", "network", "tuning")
 private var cases = 0
 
 private fun test(name: String, body: () -> Unit) {

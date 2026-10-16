@@ -1,3 +1,14 @@
 # SPDX-License-Identifier: Apache-2.0
 genfscon proc /sys/net/ipv4/tcp_congestion_control u:object_r:proc_galaxian_tcp_control:s0
 genfscon proc /sys/net/ipv4/tcp_available_congestion_control u:object_r:proc_galaxian_tcp_available:s0
+genfscon proc /sys/vm/swappiness u:object_r:proc_galaxian_tuning:s0
+genfscon proc /sys/vm/dirty_ratio u:object_r:proc_galaxian_tuning:s0
+genfscon proc /sys/vm/dirty_background_ratio u:object_r:proc_galaxian_tuning:s0
+genfscon proc /sys/vm/vfs_cache_pressure u:object_r:proc_galaxian_tuning:s0
+genfscon proc /sys/kernel/sched_uclamp_util_min u:object_r:proc_galaxian_tuning:s0
+genfscon proc /sys/kernel/sched_uclamp_util_max u:object_r:proc_galaxian_tuning:s0
+genfscon proc /sys/kernel/sched_bore u:object_r:proc_galaxian_tuning:s0
+genfscon proc /pressure/cpu u:object_r:proc_galaxian_tuning:s0
+genfscon proc /pressure/memory u:object_r:proc_galaxian_tuning:s0
+genfscon proc /pressure/io u:object_r:proc_galaxian_tuning:s0
+genfscon proc /loadavg u:object_r:proc_galaxian_tuning:s0

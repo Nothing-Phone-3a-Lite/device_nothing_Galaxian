@@ -23,6 +23,7 @@ import org.lineageos.settings.galaxian.cpu.CpuScreen
 import org.lineageos.settings.galaxian.gpu.GpuScreen
 import org.lineageos.settings.galaxian.memory.MemoryScreen
 import org.lineageos.settings.galaxian.network.NetworkScreen
+import org.lineageos.settings.galaxian.tuning.TuningScreen
 import org.lineageos.settings.galaxian.temperature.TemperatureScreen
 import org.lineageos.settings.galaxian.ui.GalaxianPartsTheme
 
@@ -123,6 +124,7 @@ class PartsSubActivity : ComponentActivity() {
             GalaxianPartsTheme {
                 when (destination) {
                     PartsPage.NETWORK -> NetworkScreen(::finish)
+                    PartsPage.TUNING -> TuningScreen(::finish)
                     PartsPage.CPU -> CpuScreen(::finish)
                     PartsPage.GPU -> GpuScreen(::finish)
                     PartsPage.MEMORY -> MemoryScreen(::finish)
@@ -154,7 +156,7 @@ private fun ComponentActivity.requireDeviceOwner(): Boolean {
 
 private enum class PartsPage(val route: String) {
     CPU("cpu"), GPU("gpu"), MEMORY("memory"), BATTERY("battery"),
-    TEMPERATURE("temperature"), ADAPTIVE("adaptive"), NETWORK("network");
+    TEMPERATURE("temperature"), ADAPTIVE("adaptive"), NETWORK("network"), TUNING("tuning");
 
     companion object {
         fun fromRoute(route: String?): PartsPage? = entries.firstOrNull { it.route == route }

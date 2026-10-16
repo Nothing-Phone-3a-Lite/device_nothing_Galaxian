@@ -35,6 +35,7 @@ android_app {
         "init.galaxian_parts_cpu.rc",
         "init.galaxian_parts_gpu.rc",
         "init.galaxian_parts_network.rc",
+        "init.galaxian_parts_tuning.rc",
         "galaxian_parts_thermal_control",
     ],
 }
@@ -63,6 +64,13 @@ prebuilt_etc {
 prebuilt_etc {
     name: "init.galaxian_parts_network.rc",
     src: "init.galaxian_parts_network.rc",
+    sub_dir: "init",
+    system_ext_specific: true,
+}
+
+prebuilt_etc {
+    name: "init.galaxian_parts_tuning.rc",
+    src: "init.galaxian_parts_tuning.rc",
     sub_dir: "init",
     system_ext_specific: true,
 }
