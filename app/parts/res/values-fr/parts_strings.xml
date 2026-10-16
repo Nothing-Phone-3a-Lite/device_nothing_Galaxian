@@ -237,7 +237,7 @@
     <string name="parts_performance">Performances</string>
     <string name="parts_device_status">État de l\'appareil</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8 cœurs</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8 cœurs</string>
     <string name="parts_adaptive_title">Contrôle adaptatif</string>
     <string name="parts_adaptive_summary">Observez, ajustez une limite et mesurez le résultat</string>
     <string name="parts_temperature_title">Températures</string>

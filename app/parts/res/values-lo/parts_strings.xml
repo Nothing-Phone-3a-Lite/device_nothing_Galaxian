@@ -237,7 +237,7 @@
     <string name="parts_performance">ປະສິດທິພາບ</string>
     <string name="parts_device_status">ສະຖານະອຸປະກອນ</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8 ແກນ</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8 ແກນ</string>
     <string name="parts_adaptive_title">ການຄວບຄຸມການປັບຕົວ</string>
     <string name="parts_adaptive_summary">ສັງເກດ, ປັບຂອບເຂດຫນຶ່ງແລະວັດແທກຜົນໄດ້ຮັບ</string>
     <string name="parts_temperature_title">ອຸນຫະພູມ</string>

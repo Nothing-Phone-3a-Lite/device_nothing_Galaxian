@@ -237,7 +237,7 @@
     <string name="parts_performance">Desempenho</string>
     <string name="parts_device_status">Status do dispositivo</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8 núcleos</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8 núcleos</string>
     <string name="parts_adaptive_title">Controle adaptativo</string>
     <string name="parts_adaptive_summary">Observe, ajuste um limite e meça o resultado</string>
     <string name="parts_temperature_title">Temperaturas</string>

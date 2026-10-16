@@ -237,7 +237,7 @@
     <string name="parts_performance">Errendimendua</string>
     <string name="parts_device_status">Gailuaren egoera</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8 nukleo</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8 nukleo</string>
     <string name="parts_adaptive_title">Kontrol egokitzailea</string>
     <string name="parts_adaptive_summary">Behatu, egokitu muga bat eta neurtu emaitza</string>
     <string name="parts_temperature_title">Tenperaturak</string>

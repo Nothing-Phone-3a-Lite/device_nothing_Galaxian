@@ -237,7 +237,7 @@
     <string name="parts_performance">Suorituskyky</string>
     <string name="parts_device_status">Laitteen tila</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8 ydintä</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8 ydintä</string>
     <string name="parts_adaptive_title">Mukautuva ohjaus</string>
     <string name="parts_adaptive_summary">Tarkkaile, säädä yhtä rajaa ja mittaa tulos</string>
     <string name="parts_temperature_title">Lämpötilat</string>

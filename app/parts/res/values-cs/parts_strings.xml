@@ -237,7 +237,7 @@
     <string name="parts_performance">Výkon</string>
     <string name="parts_device_status">Stav zařízení</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8 jader</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8 jader</string>
     <string name="parts_adaptive_title">Adaptivní ovládání</string>
     <string name="parts_adaptive_summary">Pozorujte, upravte jeden limit a změřte výsledek</string>
     <string name="parts_temperature_title">Teploty</string>

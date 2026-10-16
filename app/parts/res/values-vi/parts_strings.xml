@@ -237,7 +237,7 @@
     <string name="parts_performance">Hiệu suất</string>
     <string name="parts_device_status">Trạng thái thiết bị</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8 lõi</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8 lõi</string>
     <string name="parts_adaptive_title">Kiểm soát thích ứng</string>
     <string name="parts_adaptive_summary">Quan sát, điều chỉnh một giới hạn và đo lường kết quả</string>
     <string name="parts_temperature_title">Nhiệt độ</string>

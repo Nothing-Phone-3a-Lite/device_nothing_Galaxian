@@ -237,7 +237,7 @@
     <string name="parts_performance">"Иштин майнаптуулугу"</string>
     <string name="parts_device_status">Түзмөктүн абалы</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8 өзөк</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8 өзөк</string>
     <string name="parts_adaptive_title">Адаптивдүү башкаруу</string>
     <string name="parts_adaptive_summary">Байкоо, бир чекти тууралоо жана натыйжаны өлчөө</string>
     <string name="parts_temperature_title">Температуралар</string>

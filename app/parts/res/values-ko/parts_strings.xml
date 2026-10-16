@@ -237,7 +237,7 @@
     <string name="parts_performance">성능</string>
     <string name="parts_device_status">장치 상태</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8코어</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8코어</string>
     <string name="parts_adaptive_title">적응제어</string>
     <string name="parts_adaptive_summary">하나의 한계를 관찰하고 조정하고 결과를 측정하십시오.</string>
     <string name="parts_temperature_title">온도</string>

@@ -237,7 +237,7 @@
     <string name="parts_performance">Toimivus</string>
     <string name="parts_device_status">Seadme olek</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8 südamikku</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8 südamikku</string>
     <string name="parts_adaptive_title">Adaptiivne juhtimine</string>
     <string name="parts_adaptive_summary">Jälgige, reguleerige ühte piiri ja mõõtke tulemust</string>
     <string name="parts_temperature_title">Temperatuurid</string>

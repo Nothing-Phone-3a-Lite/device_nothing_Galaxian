@@ -237,7 +237,7 @@
     <string name="parts_performance">Производительность</string>
     <string name="parts_device_status">Статус устройства</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8 ядер</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8 ядер</string>
     <string name="parts_adaptive_title">Адаптивное управление</string>
     <string name="parts_adaptive_summary">Наблюдайте, корректируйте один предел и измеряйте результат</string>
     <string name="parts_temperature_title">Температура</string>

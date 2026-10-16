@@ -237,7 +237,7 @@
     <string name="parts_performance">การแสดง</string>
     <string name="parts_device_status">สถานะอุปกรณ์</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8 คอร์</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8 คอร์</string>
     <string name="parts_adaptive_title">การควบคุมแบบปรับตัว</string>
     <string name="parts_adaptive_summary">สังเกต ปรับหนึ่งขีดจำกัด และวัดผลลัพธ์</string>
     <string name="parts_temperature_title">อุณหภูมิ</string>

@@ -237,7 +237,7 @@
     <string name="parts_performance">কর্মক্ষমতা</string>
     <string name="parts_device_status">ডিভাইসের স্থিতি</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8 কোর</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8 কোর</string>
     <string name="parts_adaptive_title">অভিযোজিত নিয়ন্ত্রণ</string>
     <string name="parts_adaptive_summary">পর্যবেক্ষণ করুন, একটি সীমা সামঞ্জস্য করুন এবং ফলাফল পরিমাপ করুন</string>
     <string name="parts_temperature_title">তাপমাত্রা</string>

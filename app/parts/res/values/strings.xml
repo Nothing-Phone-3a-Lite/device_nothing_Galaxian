@@ -13,7 +13,7 @@
     <string name="parts_performance">Performance</string>
     <string name="parts_device_status">Device status</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8 cores</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8 cores</string>
     <string name="parts_adaptive_title">Adaptive control</string>
     <string name="parts_adaptive_summary">Observe, adjust one limit and measure the result</string>
     <string name="parts_temperature_title">Temperatures</string>

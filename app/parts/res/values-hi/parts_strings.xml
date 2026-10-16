@@ -237,7 +237,7 @@
     <string name="parts_performance">प्रदर्शन</string>
     <string name="parts_device_status">डिवाइस की स्थिति</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8 कोर</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8 कोर</string>
     <string name="parts_adaptive_title">अनुकूली नियंत्रण</string>
     <string name="parts_adaptive_summary">निरीक्षण करें, एक सीमा समायोजित करें और परिणाम को मापें</string>
     <string name="parts_temperature_title">तापमान</string>

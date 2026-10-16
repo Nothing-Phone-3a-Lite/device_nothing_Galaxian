@@ -230,7 +230,7 @@
     <string name="parts_battery_title">Batteristatus</string>
     <string name="parts_cpu_summary">Kjernefrekvensar, aktive kjernar og termisk struping</string>
     <string name="parts_cpu_title">CPU-styring</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8 kjernar</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8 kjernar</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
     <string name="parts_device_status">Einingsstatus</string>
     <string name="parts_memory_summary">Minnebruk og bakgrunnsappar</string>

@@ -237,7 +237,7 @@
     <string name="parts_performance">效能</string>
     <string name="parts_device_status">設備狀態</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8 核</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8 核</string>
     <string name="parts_adaptive_title">自適應控制</string>
     <string name="parts_adaptive_summary">觀察、調整一個限值並測量結果</string>
     <string name="parts_temperature_title">溫度</string>

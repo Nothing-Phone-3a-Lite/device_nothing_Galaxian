@@ -237,7 +237,7 @@
     <string name="parts_performance">Izvedba</string>
     <string name="parts_device_status">Status uređaja</string>
     <string name="parts_device_name">Nothing Phone (3a) Lite</string>
-    <string name="parts_device_chip">Dimensity 7300 · 8 jezgri</string>
+    <string name="parts_device_chip">Dimensity 7300 Pro · 8 jezgri</string>
     <string name="parts_adaptive_title">Adaptivno upravljanje</string>
     <string name="parts_adaptive_summary">Promatrajte, podesite jednu granicu i izmjerite rezultat</string>
     <string name="parts_temperature_title">Temperature</string>

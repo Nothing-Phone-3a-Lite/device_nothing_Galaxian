@@ -130,7 +130,7 @@ internal object TemperatureValues {
         name in CPU_ZONES -> Temperature.TYPE_CPU
         name == "gpu" -> Temperature.TYPE_GPU
         name == "battery" -> Temperature.TYPE_BATTERY
-        name in setOf("ap_ntc", "shell_max") -> Temperature.TYPE_SKIN
+        name in setOf("ap_ntc", "shell_max", "vtskin1", "vtskin2", "vtskin3", "vtskin4", "vtskin5", "vtskin6", "vtskin-max") -> Temperature.TYPE_SKIN
         name in setOf("soc_max", "soc-top1", "soc-top2", "soc-bot1", "soc-bot2") -> Temperature.TYPE_SOC
         name in setOf("md1", "md2", "md3", "md4") -> Temperature.TYPE_MODEM
         name in setOf("nrpa_ntc", "ltepa_ntc") -> Temperature.TYPE_POWER_AMPLIFIER
