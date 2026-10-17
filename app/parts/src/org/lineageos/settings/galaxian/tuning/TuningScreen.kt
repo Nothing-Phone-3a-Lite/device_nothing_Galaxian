@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.AlertDialog
@@ -139,7 +140,7 @@ fun TuningScreen(onBack: () -> Unit) {
         }
     }
 
-    fun run(block: () -> Boolean) {
+    fun commit(block: () -> Boolean) {
         if (!resumed || busy) return
         busy = true
         result = null
@@ -209,10 +210,8 @@ fun TuningScreen(onBack: () -> Unit) {
                                                 onClick = {
                                                     if (governor != policy.governor) {
                                                         confirmation = TuningConfirmation(governor) {
-                                                            run {
-                                                                TuningSession.cpuGov.setGovernor(
-                                                                    policy.id, governor).successful
-                                                            }
+                                                            TuningSession.cpuGov.setGovernor(
+                                                                policy.id, governor).successful
                                                         }
                                                     }
                                                 },
@@ -245,10 +244,8 @@ fun TuningScreen(onBack: () -> Unit) {
                                                 (gov.policies.firstOrNull()?.rateWritable == true),
                                             onClick = {
                                                 confirmation = TuningConfirmation("$choice") {
-                                                    run {
-                                                        TuningSession.cpuGov.setRateLimitUs(
-                                                            choice).successful
-                                                    }
+                                                    TuningSession.cpuGov.setRateLimitUs(
+                                                        choice).successful
                                                 }
                                             },
                                             trailing = { RadioButton(selected = rate == choice,
@@ -263,7 +260,7 @@ fun TuningScreen(onBack: () -> Unit) {
                                 PartsPreference(title = stringResource(R.string.tuning_restore),
                                     summary = stringResource(R.string.tuning_restore_summary),
                                     enabled = resumed && !busy && gov.policies.isNotEmpty(),
-                                    onClick = { run {
+                                    onClick = { commit {
                                         TuningSession.cpuGov.restoreInitial().successful
                                     } })
                             }
@@ -285,10 +282,8 @@ fun TuningScreen(onBack: () -> Unit) {
                                             onClick = {
                                                 if (governor != device.governor) {
                                                     confirmation = TuningConfirmation(governor) {
-                                                        run {
-                                                            TuningSession.gpuGov.setGovernor(
-                                                                device.name, governor).successful
-                                                        }
+                                                        TuningSession.gpuGov.setGovernor(
+                                                            device.name, governor).successful
                                                     }
                                                 }
                                             },
@@ -304,7 +299,7 @@ fun TuningScreen(onBack: () -> Unit) {
                             PartsPreferenceGroup {
                                 PartsPreference(title = stringResource(R.string.tuning_restore),
                                     enabled = resumed && !busy,
-                                    onClick = { run {
+                                    onClick = { commit {
                                         TuningSession.gpuGov.restoreInitial().successful
                                     } })
                             }
@@ -328,11 +323,9 @@ fun TuningScreen(onBack: () -> Unit) {
                                                     if (scheduler != device.scheduler) {
                                                         confirmation =
                                                             TuningConfirmation(scheduler) {
-                                                                run {
-                                                                    TuningSession.io.setScheduler(
-                                                                        device.name,
-                                                                        scheduler).successful
-                                                                }
+                                                                TuningSession.io.setScheduler(
+                                                                    device.name,
+                                                                    scheduler).successful
                                                             }
                                                     }
                                                 },
@@ -354,10 +347,8 @@ fun TuningScreen(onBack: () -> Unit) {
                                             enabled = resumed && !busy && device.writable,
                                             onClick = {
                                                 confirmation = TuningConfirmation("$choice") {
-                                                    run {
-                                                        TuningSession.io.setReadAheadKb(
-                                                            device.name, choice).successful
-                                                    }
+                                                    TuningSession.io.setReadAheadKb(
+                                                        device.name, choice).successful
                                                 }
                                             },
                                             trailing = { RadioButton(
@@ -372,7 +363,7 @@ fun TuningScreen(onBack: () -> Unit) {
                             PartsPreferenceGroup {
                                 PartsPreference(title = stringResource(R.string.tuning_restore),
                                     enabled = resumed && !busy,
-                                    onClick = { run {
+                                    onClick = { commit {
                                         TuningSession.io.restoreInitial().successful
                                     } })
                             }
@@ -578,7 +569,7 @@ fun TuningScreen(onBack: () -> Unit) {
                 TextButton(enabled = resumed && !busy, onClick = {
                     val action = change.action
                     confirmation = null
-                    run(action)
+                    commit(action)
                 }) { Text(stringResource(R.string.tuning_apply)) }
             },
             dismissButton = { TextButton(onClick = { confirmation = null }) {

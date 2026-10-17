@@ -37,7 +37,7 @@
     <string name="tuning_vm_help">Preset curati per il comportamento di reclaim. I valori passano da init e sono verificati per rilettura.</string>
     <string name="tuning_vm_presets">Preset di memoria</string>
     <string name="tuning_swappiness">Swappiness</string>
-    <string name="tuning_swappiness_vendor">Gestita dall'ottimizzazione di sistema del fornitore; non modificabile qui.</string>
+    <string name="tuning_swappiness_vendor">Gestita dall\'ottimizzazione di sistema del fornitore; non modificabile qui.</string>
     <string name="tuning_dirty_ratio">Dirty ratio</string>
     <string name="tuning_dirty_background">Dirty background ratio</string>
     <string name="tuning_cache_pressure">Pressione sulla cache</string>

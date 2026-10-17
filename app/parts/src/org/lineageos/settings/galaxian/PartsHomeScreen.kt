@@ -61,7 +61,8 @@ fun PartsHomeScreen(onNavigate: (String) -> Unit) {
             ),
         ) {
             item { DeviceHero() }
-            item { SpecGrid() }            item {
+            item { SpecGrid() }
+            item {
                 PartsPreferenceGroup(title = stringResource(R.string.parts_performance)) {
                     PartsPreference(
                         title = stringResource(R.string.parts_cpu_title),

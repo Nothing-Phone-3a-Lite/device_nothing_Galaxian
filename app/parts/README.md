@@ -296,6 +296,9 @@ checks the compiled policy, the baseline denial and preserved service registrati
 restrictions. The review remains accessible in the app if notifications are blocked.
 
 Host checks include Compose compilation against Android/AndroidX/SettingsLib;
+`tests/check-kotlin-sources.py` keeps the sources free of stdlib shadowing,
+missing Compose extension imports and unbalanced delimiters, since these sources
+are only type-checked by a real build;
 resource compilation and product-wide locale checks; CPU transaction/lock tests;
 GPU OPP parsing, acknowledgement, idle-state, coordinator and exact rollback tests;
 frame parser/deduplication/cadence tests; adaptive CPU/GPU decision, approval
