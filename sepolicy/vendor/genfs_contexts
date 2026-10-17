@@ -84,7 +84,9 @@ genfscon sysfs /devices/system/cpu/cpufreq/policy0/scaling_available_governors u
 genfscon sysfs /devices/system/cpu/cpufreq/policy4/scaling_governor u:object_r:sysfs_galaxian_tuning:s0
 genfscon sysfs /devices/system/cpu/cpufreq/policy4/scaling_available_governors u:object_r:sysfs_galaxian_tuning:s0
 genfscon sysfs /devices/system/cpu/cpufreq/schedutil/rate_limit_us u:object_r:sysfs_galaxian_tuning:s0
-genfscon sysfs /class/devfreq u:object_r:sysfs_galaxian_tuning:s0
+# /sys/block is a plain directory: label it for enumeration. Its entries are
+# symlinks to the disks' real paths, which the MediaTek vendor policy already
+# labels sysfs_devices_block (and its init scripts write), so those are left as is.
 genfscon sysfs /block u:object_r:sysfs_galaxian_tuning:s0
 genfscon sysfs /kernel/bore u:object_r:sysfs_galaxian_tuning:s0
 genfscon proc /gpufreqv2/gpufreq_status u:object_r:vendor_galaxian_gpu_status:s0

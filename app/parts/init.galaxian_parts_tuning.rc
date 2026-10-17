@@ -1,29 +1,27 @@
 # SPDX-License-Identifier: Apache-2.0
 
 # Advertise the controls only after init has loaded this file. Keep kernel defaults.
+# /proc/sys/vm/swappiness is owned by the MediaTek vendor policy (proc_swappiness,
+# writable by vendor_init), so it is deliberately not part of these presets.
 on property:sys.boot_completed=1
     setprop sys.galaxianparts.tuning_ready 1
 
 on property:sys.galaxianparts.vm_profile=stock
-    write /proc/sys/vm/swappiness 60
     write /proc/sys/vm/dirty_ratio 20
     write /proc/sys/vm/dirty_background_ratio 10
     write /proc/sys/vm/vfs_cache_pressure 100
 
 on property:sys.galaxianparts.vm_profile=balanced
-    write /proc/sys/vm/swappiness 60
     write /proc/sys/vm/dirty_ratio 15
     write /proc/sys/vm/dirty_background_ratio 5
     write /proc/sys/vm/vfs_cache_pressure 80
 
 on property:sys.galaxianparts.vm_profile=performance
-    write /proc/sys/vm/swappiness 30
     write /proc/sys/vm/dirty_ratio 20
     write /proc/sys/vm/dirty_background_ratio 10
     write /proc/sys/vm/vfs_cache_pressure 50
 
 on property:sys.galaxianparts.vm_profile=battery
-    write /proc/sys/vm/swappiness 100
     write /proc/sys/vm/dirty_ratio 10
     write /proc/sys/vm/dirty_background_ratio 5
     write /proc/sys/vm/vfs_cache_pressure 150

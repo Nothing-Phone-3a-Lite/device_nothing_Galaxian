@@ -90,7 +90,6 @@ internal class VmManager(
 
     private fun snapshot(): VmState {
         val values = mapOf(
-            "swappiness" to readInt("swappiness", 0..100),
             "dirty_ratio" to readInt("dirty_ratio", 0..100),
             "dirty_background_ratio" to readInt("dirty_background_ratio", 0..100),
             "vfs_cache_pressure" to readInt("vfs_cache_pressure", 0..1000),
@@ -98,15 +97,13 @@ internal class VmManager(
         val ready = runCatching { port.controlReady() }.getOrDefault(false)
         val complete = values.values.all { it != null }
         val active = VmPreset.entries.firstOrNull { preset ->
-            preset.swappiness == values["swappiness"] &&
-                preset.dirtyRatio == values["dirty_ratio"] &&
+            preset.dirtyRatio == values["dirty_ratio"] &&
                 preset.dirtyBackground == values["dirty_background_ratio"] &&
                 preset.cachePressure == values["vfs_cache_pressure"]
         }
         if (initial == null) initial = active
         val applicable = complete && ready
         return VmState(
-            swappiness = values["swappiness"],
             dirtyRatio = values["dirty_ratio"],
             dirtyBackground = values["dirty_background_ratio"],
             cachePressure = values["vfs_cache_pressure"],
@@ -116,8 +113,8 @@ internal class VmManager(
     }
 
     private fun sameValues(a: VmState, b: VmState): Boolean =
-        a.swappiness == b.swappiness && a.dirtyRatio == b.dirtyRatio &&
-            a.dirtyBackground == b.dirtyBackground && a.cachePressure == b.cachePressure
+        a.dirtyRatio == b.dirtyRatio && a.dirtyBackground == b.dirtyBackground &&
+            a.cachePressure == b.cachePressure
 
     private fun readInt(node: String, range: IntRange): Int? =
         readSmallInt(File(procVm, node))?.takeIf { it in range }

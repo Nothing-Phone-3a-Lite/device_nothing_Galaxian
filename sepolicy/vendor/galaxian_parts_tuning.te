@@ -1,8 +1,33 @@
 # SPDX-License-Identifier: Apache-2.0
 
-# Tuning controls: governors, I/O, VM/uclamp presets and diagnostics.
+# Tuning controls: CPU governors, schedutil rate limit, I/O scheduler, read-ahead
+# and BORE state.
+#
+# Nodes the platform or the MediaTek vendor policy already label keep their label.
+# Relabelling one duplicates an existing genfs entry (a build error) and would
+# silently remove the access the vendor itself relies on, so only unowned nodes
+# below get a Galaxian label.
+
+# CPU governor, available governors, schedutil rate limit, and the /sys/kernel/bore
+# directory a BORE kernel would expose.
 type sysfs_galaxian_tuning, fs_type, sysfs_type;
 allow galaxian_parts_app sysfs_galaxian_tuning:file rw_file_perms;
+allow galaxian_parts_app sysfs_galaxian_tuning:lnk_file r_file_perms;
 
-# Preserve existing readers of the relabelled nodes.
+# /sys/block is a plain directory, so it needs its own label for the app to
+# enumerate disks; the entries it links to resolve to the disks' real paths.
+allow galaxian_parts_app sysfs_galaxian_tuning:dir r_dir_perms;
+
+# Preserve what other domains could already do on these paths: search the
+# /sys/block directory and read governor values.
+allow { domain -isolated_app_all } sysfs_galaxian_tuning:dir search;
 allow { domain -isolated_app_all } sysfs_galaxian_tuning:file r_file_perms;
+
+# The MediaTek power HAL owns the CPU sysfs write side; keep it after relabelling.
+allow { hal_power_default mtk_hal_power } sysfs_galaxian_tuning:file rw_file_perms;
+
+# Disk queue nodes (scheduler, read-ahead) resolve to the disk's real path, which
+# the MediaTek vendor policy labels sysfs_devices_block and its own init scripts
+# write. The app is granted read-write there; the vendor label is left alone.
+allow galaxian_parts_app sysfs_devices_block:dir r_dir_perms;
+allow galaxian_parts_app sysfs_devices_block:file rw_file_perms;

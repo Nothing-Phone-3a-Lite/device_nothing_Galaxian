@@ -11,6 +11,17 @@ neverallow { domain -init -galaxian_parts_app } galaxianparts_vm_request_prop:pr
 neverallow { domain -init -galaxian_parts_app } galaxianparts_uclamp_request_prop:property_service set;
 neverallow { domain -init } galaxianparts_tuning_status_prop:property_service set;
 
-# Read-only VM, uclamp and stall accounting. Init alone writes the presets.
+# Read-only VM, uclamp and BORE nodes. Init alone writes the preset values.
 type proc_galaxian_tuning, fs_type, proc_type;
 allow galaxian_parts_app proc_galaxian_tuning:file r_file_perms;
+allow init proc_galaxian_tuning:file w_file_perms;
+
+# Reclaim and stall accounting the platform already labels. The app only reads
+# them; init already holds the write side of proc_dirty for its own sysctls.
+allow galaxian_parts_app {
+    proc_dirty
+    proc_loadavg
+    proc_pressure_cpu
+    proc_pressure_io
+    proc_pressure_mem
+}:file r_file_perms;

@@ -383,7 +383,9 @@ fun TuningScreen(onBack: () -> Unit) {
                             body = stringResource(R.string.tuning_vm_help)) }
                         item("vm_values") {
                             PartsPreferenceGroup(title = stringResource(R.string.tuning_vm)) {
-                                VmValue(R.string.tuning_swappiness, vm.swappiness)
+                                PartsPreference(
+                                    title = stringResource(R.string.tuning_swappiness),
+                                    summary = stringResource(R.string.tuning_swappiness_vendor))
                                 VmValue(R.string.tuning_dirty_ratio, vm.dirtyRatio)
                                 VmValue(R.string.tuning_dirty_background, vm.dirtyBackground)
                                 VmValue(R.string.tuning_cache_pressure, vm.cachePressure)
@@ -391,7 +393,7 @@ fun TuningScreen(onBack: () -> Unit) {
                         }
                         item("vm_presets") {
                             PartsPreferenceGroup(title = stringResource(R.string.tuning_vm_presets)) {
-                                if (!vm.canApply && vm.swappiness == null) {
+                                if (!vm.canApply && vm.dirtyRatio == null) {
                                     PartsPreference(title = stringResource(
                                         R.string.tuning_vm_presets),
                                         summary = stringResource(R.string.tuning_unavailable))

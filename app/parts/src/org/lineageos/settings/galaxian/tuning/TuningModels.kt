@@ -62,22 +62,22 @@ internal data class IoDevice(
     val writable: Boolean,
 )
 
-/* VM presets: curated fixed values applied through init, verified by readback. */
+/* VM presets: curated fixed values applied through init, verified by readback.
+ * swappiness is excluded: the MediaTek vendor policy labels that node
+ * (proc_swappiness) and only vendor_init may write it. */
 
 internal enum class VmPreset(
-    val swappiness: Int,
     val dirtyRatio: Int,
     val dirtyBackground: Int,
     val cachePressure: Int,
 ) {
-    STOCK(60, 20, 10, 100),
-    BALANCED(60, 15, 5, 80),
-    PERFORMANCE(30, 20, 10, 50),
-    BATTERY(100, 10, 5, 150),
+    STOCK(20, 10, 100),
+    BALANCED(15, 5, 80),
+    PERFORMANCE(20, 10, 50),
+    BATTERY(10, 5, 150),
 }
 
 internal data class VmState(
-    val swappiness: Int? = null,
     val dirtyRatio: Int? = null,
     val dirtyBackground: Int? = null,
     val cachePressure: Int? = null,

@@ -30,8 +30,8 @@ fun main() {
     check(IoManager.parseScheduler("") == (null to emptyList()))
     println("PASS scheduler bracket parsing")
 
-    check(VmPreset.STOCK.swappiness == 60 && VmPreset.PERFORMANCE.cachePressure == 50 &&
-        VmPreset.BATTERY.swappiness == 100 && VmPreset.BALANCED.dirtyBackground == 5)
+    check(VmPreset.STOCK.dirtyRatio == 20 && VmPreset.PERFORMANCE.cachePressure == 50 &&
+        VmPreset.BATTERY.dirtyRatio == 10 && VmPreset.BALANCED.dirtyBackground == 5)
     check(UclampPreset.DEFAULT.min == 0 && UclampPreset.DEFAULT.max == 1024 &&
         UclampPreset.BATTERY.max == 512 && UclampPreset.PERFORMANCE.min == 128)
     check(CpuGovManager.RATE_RANGE.first == 100L && IoManager.READ_AHEAD_CHOICES.contains(512L))
@@ -71,7 +71,7 @@ fun main() {
 
         // VM preset round-trip through a fake port that behaves like init.
         val vmRoot = File(root, "vm").apply { mkdirs() }
-        val vmFiles = mapOf("swappiness" to "60", "dirty_ratio" to "20",
+        val vmFiles = mapOf("dirty_ratio" to "20",
             "dirty_background_ratio" to "10", "vfs_cache_pressure" to "100")
         vmFiles.forEach { (name, value) -> File(vmRoot, name).writeText("$value\n") }
         val port = FakeVmPort()
@@ -85,7 +85,6 @@ fun main() {
         check(!requested.successful && requested.failure == TuningFailure.READBACK_FAILED)
         check(port.requested == VmPreset.BALANCED)
         // Simulate init having applied it.
-        File(vmRoot, "swappiness").writeText("60\n")
         File(vmRoot, "dirty_ratio").writeText("15\n")
         File(vmRoot, "dirty_background_ratio").writeText("5\n")
         File(vmRoot, "vfs_cache_pressure").writeText("80\n")
