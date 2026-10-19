@@ -1,4 +1,4 @@
-# All proprietary files from this list are from Galaxian_B4.1-260508-1508
+# All proprietary files from this list are from Galaxian_B4.1-260819-1839
 
 # AEE
 vendor/lib64/libaedv.so
@@ -767,11 +767,16 @@ vendor/bin/hw/android.hardware.gnss-service.mediatek
 vendor/bin/hw/vendor.mediatek.hardware.gnss-service
 vendor/bin/mnld
 vendor/bin/mtk_agpsd
+vendor/bin/mtk_lbs_service
 vendor/etc/init/android.hardware.gnss-service.mediatek.rc
+vendor/etc/init/init.gps_pwr.rc
+vendor/etc/init/init.gps_scp.rc
 vendor/etc/init/mtk_agpsd_p.rc
 vendor/etc/init/mtk_gnss.rc
+vendor/etc/init/mtk_lbs_service.rc
 vendor/etc/vintf/manifest/gnss-default.xml:vendor/etc/vintf/manifest/gnss-mtk-default.xml
 vendor/etc/vintf/manifest/gnss-mtk.xml
+vendor/etc/vintf/manifest/mtk_lbs_service.xml
 vendor/etc/vintf/manifest/mtkgnss-batching.xml
 vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so
 vendor/lib64/hw/gps.default.so
@@ -782,10 +787,12 @@ vendor/lib64/hw/vendor.mediatek.hardware.gnss.batching-impl.so
 vendor/lib64/mt6878/libDR.so;SYMLINK=vendor/lib64/libDR.so
 vendor/lib64/mt6878/libmnl.so;SYMLINK=vendor/lib64/libmnl.so
 vendor/lib64/libapmonitor_vendor.so
+vendor/lib64/mtk_lbs_service-impl.so
 vendor/lib64/vendor.mediatek.hardware.apmonitor-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.apmonitor@2.0.so
 vendor/lib64/vendor.mediatek.hardware.gnss-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.gnss.batching-V1-ndk.so
+vendor/lib64/vendor.mediatek.hardware.lbs-V1-ndk.so
 
 # GNSS (Configs)
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_ATnT_Mexico.xml
@@ -867,12 +874,12 @@ vendor/lib64/vendor.mediatek.hardware.videotelephony-V1-ndk.so;MODULE_SUFFIX=-ve
 system_ext/bin/vtservice
 system_ext/etc/init/init.vtservice.rc
 system_ext/etc/sysconfig/com.mediatek.ims.config.xml
-system_ext/framework/mediatek-ims-base.jar
-system_ext/framework/mediatek-ims-common.jar
+system_ext/framework/mediatek-ims-base.jar:system/framework/mediatek-ims-base.jar;BOOT_JAR
+system_ext/framework/mediatek-ims-common.jar:system/framework/mediatek-ims-common.jar;BOOT_JAR
 system_ext/framework/mediatek-ims-extension-plugin.jar
-system_ext/framework/mediatek-telecom-common.jar
-system_ext/framework/mediatek-telephony-base.jar
-system_ext/framework/mediatek-telephony-common.jar
+system_ext/framework/mediatek-telecom-common.jar:system/framework/mediatek-telecom-common.jar;BOOT_JAR
+system_ext/framework/mediatek-telephony-base.jar:system/framework/mediatek-telephony-base.jar;BOOT_JAR
+system_ext/framework/mediatek-telephony-common.jar:system/framework/mediatek-telephony-common.jar;BOOT_JAR
 system_ext/lib64/libcomutils.so
 system_ext/lib64/libimsma.so
 system_ext/lib64/libimsma_adapt.so
@@ -1251,14 +1258,6 @@ vendor/firmware/wifi.cfg
 
 # NFC
 vendor/bin/hw/android.hardware.nfc-service-tms:vendor/bin/hw/android.hardware.nfc-service-tms
-vendor/lib64/nfc_nci.thn31nfc.tms.so:vendor/lib64/nfc_nci.thn31nfc.tms.so
-vendor/lib64/vendor.tms.tmsnfc_aidl-V1-ndk.so:vendor/lib64/vendor.tms.tmsnfc_aidl-V1-ndk.so
-vendor/lib64/tms-cos-dl-ree.so:vendor/lib64/tms-cos-dl-ree.so
-vendor/lib64/tms-cos-dl-common.so:vendor/lib64/tms-cos-dl-common.so
-vendor/lib64/tms-utils.so:vendor/lib64/tms-utils.so
-vendor/lib64/7816-3-T1.so:vendor/lib64/7816-3-T1.so
-
-# NFC configs
 vendor/etc/libnfc-nci.conf:vendor/etc/libnfc-nci.conf
 vendor/etc/libnfc-tms.conf:vendor/etc/libnfc-tms.conf
 vendor/etc/libnfc-tms_RF.conf:vendor/etc/libnfc-tms_RF.conf
@@ -1266,4 +1265,11 @@ vendor/etc/libnfc-tms_RF_EC2.conf:vendor/etc/libnfc-tms_RF_EC2.conf
 vendor/etc/libnfc-tms_RF_GB1.conf:vendor/etc/libnfc-tms_RF_GB1.conf
 vendor/etc/init/nfc-service-tms.rc:vendor/etc/init/nfc-service-tms.rc
 vendor/etc/libese-tms.conf:vendor/etc/libese-tms.conf
-vendor/etc/THN31_FW_VTP.txt:vendor/etc/THN31_FW_VTP.txt
+vendor/etc/SEC_THN31_FW_VTP.txt.bin:vendor/etc/SEC_THN31_FW_VTP.txt.bin
+vendor/etc/init/nfc-service-tms.rc
+vendor/lib64/7816-3-T1.so
+vendor/lib64/nfc_nci.thn31nfc.tms.so
+vendor/lib64/tms-cos-dl-common.so
+vendor/lib64/tms-cos-dl-ree.so
+vendor/lib64/tms-utils.so
+vendor/lib64/vendor.tms.tmsnfc_aidl-V1-ndk.so
