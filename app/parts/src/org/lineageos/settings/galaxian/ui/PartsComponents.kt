@@ -22,7 +22,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -102,7 +101,7 @@ fun PartsScaffold(
                 scrollBehavior = scrollBehavior,
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.surfaceContainer,
-                    scrolledContainerColor = MaterialTheme.colorScheme.surfaceContainer,
+                    scrolledContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
                 ),
             )
         },
@@ -128,7 +127,8 @@ fun PartsPreferenceGroup(
         if (title != null) {
             Text(
                 text = title,
-                style = MaterialTheme.typography.labelLarge,
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.SemiBold,
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.padding(start = 8.dp, top = 12.dp, bottom = 8.dp),
             )
@@ -150,7 +150,8 @@ fun PartsCategoryTitle(
 ) {
     Text(
         text = title,
-        style = MaterialTheme.typography.labelLarge,
+        style = MaterialTheme.typography.titleSmall,
+        fontWeight = FontWeight.SemiBold,
         color = MaterialTheme.colorScheme.primary,
         modifier = modifier.padding(
             start = PartsPageGutter + 8.dp,
@@ -243,13 +244,13 @@ private fun PartsPreferenceContent(
         if (icon != null || iconBitmap != null) {
             Box(
                 modifier = Modifier
-                    .size(40.dp)
-                    .clip(CircleShape),
+                    .size(42.dp)
+                    .clip(RoundedCornerShape(14.dp)),
                 contentAlignment = Alignment.Center,
             ) {
                 Surface(
-                    modifier = Modifier.size(40.dp),
-                    shape = CircleShape,
+                    modifier = Modifier.size(42.dp),
+                    shape = RoundedCornerShape(14.dp),
                     color = if (destructive) {
                         MaterialTheme.colorScheme.errorContainer
                     } else {
@@ -390,7 +391,10 @@ fun PartsInfoCard(
                     MaterialTheme.colorScheme.primary
                 },
             )
-            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            Column(
+                modifier = Modifier.weight(1f),
+                verticalArrangement = Arrangement.spacedBy(4.dp),
+            ) {
                 if (title != null) {
                     Text(
                         text = title,
@@ -411,7 +415,7 @@ fun PartsInfoCard(
     }
 }
 
-/** Compact live-value tile shared by the battery and memory screens. */
+/** Compact live-value tile shared by the battery, memory and adaptive screens. */
 @Composable
 fun PartsMetricCard(
     label: String,
@@ -419,12 +423,9 @@ fun PartsMetricCard(
     icon: ImageVector,
     modifier: Modifier = Modifier,
     tint: Color = MaterialTheme.colorScheme.primary,
+    onClick: (() -> Unit)? = null,
 ) {
-    Surface(
-        modifier = modifier.heightIn(min = 104.dp),
-        shape = PartsGroupShape,
-        color = MaterialTheme.colorScheme.surfaceBright,
-    ) {
+    val cardContent: @Composable () -> Unit = {
         Column(
             modifier = Modifier.padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -441,8 +442,11 @@ fun PartsMetricCard(
                 )
                 Text(
                     text = label,
+                    modifier = Modifier.weight(1f),
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
                 )
             }
             Text(
@@ -453,5 +457,22 @@ fun PartsMetricCard(
                 overflow = TextOverflow.Ellipsis,
             )
         }
+    }
+
+    if (onClick != null) {
+        Surface(
+            onClick = onClick,
+            modifier = modifier.heightIn(min = 104.dp),
+            shape = PartsGroupShape,
+            color = MaterialTheme.colorScheme.surfaceBright,
+            content = cardContent,
+        )
+    } else {
+        Surface(
+            modifier = modifier.heightIn(min = 104.dp),
+            shape = PartsGroupShape,
+            color = MaterialTheme.colorScheme.surfaceBright,
+            content = cardContent,
+        )
     }
 }

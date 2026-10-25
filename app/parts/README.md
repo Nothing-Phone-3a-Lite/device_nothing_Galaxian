@@ -1,9 +1,10 @@
 # Galaxian Parts
 
 Nothing Phone (3a) Lite controls under **Settings → System → Galaxian Parts**. The interface
-now uses Rodin’s Compose components directly: large collapsing headers, grouped
-rounded cards, dynamic Settings colours, animated navigation, live metric tiles,
-a battery gauge and a RAM usage bar. CPU, GPU, RAM, battery, temperatures and optional
+now uses Rodin’s Compose components directly: a live dashboard home with the device render,
+tappable battery/temperature/RAM readings, expressive control tiles and a hardware summary,
+then large collapsing headers, grouped rounded cards, dynamic Settings colours, animated
+navigation and live metric tiles throughout. CPU, GPU, RAM, battery, temperatures and optional
 adaptive control each have their own page.
 
 ## Languages and navigation
