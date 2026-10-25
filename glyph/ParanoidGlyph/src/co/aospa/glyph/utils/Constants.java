@@ -52,6 +52,7 @@ public final class Constants {
     public static final String GLYPH_NOTIFS_SUB_ESSENTIAL = "glyph_settings_notifs_sub_essential";
     public static final String GLYPH_NOTIFS_SUB_CATEGORY = "glyph_settings_notifs_sub";
     public static final String GLYPH_NOTIFS_SUB_ENABLE = "glyph_settings_notifs_sub_toggle";
+    public static final String GLYPH_VOLUME_CATEGORY = "glyph_settings_volume";
     public static final String GLYPH_VOLUME_LEVEL_ENABLE = "glyph_settings_volume_level_toggle";
 
     public static final String[] APPS_TO_IGNORE = {
@@ -115,11 +116,27 @@ public final class Constants {
         return path != null && !path.isEmpty();
     }
 
+    public static boolean isChargingLevelSupported() {
+        // Galaxian's Glyph light can only be on or off, so it cannot display a
+        // battery gauge while charging.
+        return !isGalaxian();
+    }
+
+    public static boolean isVolumeLevelSupported() {
+        // Galaxian's Glyph light can only be on or off, so it cannot display a
+        // volume level while the volume keys are used.
+        return !isGalaxian();
+    }
+
     public static boolean isBrightnessSupported() {
         // Galaxian's Glyph light is a plain on/off switch: its driver only takes a state
         // (0, 1 or a breathing period) and the rail that feeds it is fixed at 3.3 V, so no
         // brightness level can change what the hardware does (see FileUtils.galaxianLedState).
-        return !"galaxian".equals(getDevice());
+        return !isGalaxian();
+    }
+
+    private static boolean isGalaxian() {
+        return "galaxian".equals(getDevice());
     }
 
 }

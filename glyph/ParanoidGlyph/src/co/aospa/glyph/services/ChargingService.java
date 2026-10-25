@@ -33,6 +33,7 @@ import android.os.PowerManager;
 import android.util.Log;
 
 import co.aospa.glyph.manager.AnimationManager;
+import co.aospa.glyph.utils.Constants;
 
 public class ChargingService extends Service {
 
@@ -66,6 +67,11 @@ public class ChargingService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        if (!Constants.isChargingLevelSupported()) {
+            if (DEBUG) Log.d(TAG, "Charging level is not supported, stopping service");
+            stopSelf();
+            return START_NOT_STICKY;
+        }
         if (DEBUG) Log.d(TAG, "Starting service");
         return START_STICKY;
     }

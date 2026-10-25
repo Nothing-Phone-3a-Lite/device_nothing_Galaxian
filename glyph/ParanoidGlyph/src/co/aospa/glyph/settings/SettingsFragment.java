@@ -27,6 +27,7 @@ import android.provider.Settings;
 
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceCategory;
 import androidx.preference.SeekBarPreference;
 import androidx.preference.SwitchPreferenceCompat;
 
@@ -95,15 +96,33 @@ public class SettingsFragment extends SettingsBasePreferenceFragment implements 
 
         mChargingLevelPreference = (SwitchPreferenceCompat) findPreference(Constants.GLYPH_CHARGING_LEVEL_ENABLE);
         mChargingLevelPreference.setOnPreferenceChangeListener(this);
+        if (!Constants.isChargingLevelSupported()) {
+            mChargingLevelPreference.setVisible(false);
+        }
 
         mChargingPowersharePreference = (SwitchPreferenceCompat) findPreference(Constants.GLYPH_CHARGING_POWERSHARE_ENABLE);
         mChargingPowersharePreference.setOnPreferenceChangeListener(this);
         if (!Constants.isPowershareSupported()) {
             mChargingPowersharePreference.setVisible(false);
         }
+        if (!Constants.isChargingLevelSupported() && !Constants.isPowershareSupported()) {
+            PreferenceCategory chargingCategory =
+                    (PreferenceCategory) findPreference(Constants.GLYPH_CHARGING_CATEGORY);
+            if (chargingCategory != null) {
+                chargingCategory.setVisible(false);
+            }
+        }
 
         mVolumeLevelPreference = (SwitchPreferenceCompat) findPreference(Constants.GLYPH_VOLUME_LEVEL_ENABLE);
         mVolumeLevelPreference.setOnPreferenceChangeListener(this);
+        if (!Constants.isVolumeLevelSupported()) {
+            mVolumeLevelPreference.setVisible(false);
+            PreferenceCategory volumeCategory =
+                    (PreferenceCategory) findPreference(Constants.GLYPH_VOLUME_CATEGORY);
+            if (volumeCategory != null) {
+                volumeCategory.setVisible(false);
+            }
+        }
 
         mMusicVisualizerPreference = (SwitchPreferenceCompat) findPreference(Constants.GLYPH_MUSIC_VISUALIZER_ENABLE);
         mMusicVisualizerPreference.setOnPreferenceChangeListener(this);

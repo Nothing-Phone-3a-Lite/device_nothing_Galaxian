@@ -27,11 +27,9 @@
 
     <!-- Battery Animations -->
     <!--
-         The charging sweep is a per-zone progress bar. With one light there is
-         nothing to sweep, so the frame simply blinks as the level is reached.
+         Galaxian's single on/off Glyph light cannot show a battery level, so
+         the charging animation is not exposed on this device.
     -->
-    <bool name="glyph_settings_battery_dot" translatable="false">false</bool>
-    <integer name="glyph_settings_battery_levels_num" translatable="false">1</integer>
 
     <!-- Call Animations -->
     <string name="glyph_settings_call_animations_default" translatable="false">Beetle (Custom)</string>
@@ -41,6 +39,9 @@
     <integer name="glyph_settings_notifs_essential_led" translatable="false">0</integer>
 
     <!-- Volume Animations -->
-    <integer name="glyph_settings_volume_levels_num" translatable="false">1</integer>
+    <!--
+         Galaxian's single on/off Glyph light cannot show a volume level, so
+         the volume indicator is not exposed on this device.
+    -->
 
 </resources>

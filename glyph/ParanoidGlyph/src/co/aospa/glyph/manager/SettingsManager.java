@@ -64,7 +64,8 @@ public final class SettingsManager {
     }
 
     public static boolean isGlyphChargingEnabled() {
-        return PreferenceManager.getDefaultSharedPreferences(Constants.CONTEXT)
+        return Constants.isChargingLevelSupported()
+                && PreferenceManager.getDefaultSharedPreferences(Constants.CONTEXT)
                 .getBoolean(Constants.GLYPH_CHARGING_LEVEL_ENABLE, false) && isGlyphEnabled();
     }
 
@@ -97,7 +98,8 @@ public final class SettingsManager {
     }
 
     public static boolean isGlyphVolumeLevelEnabled() {
-        return PreferenceManager.getDefaultSharedPreferences(Constants.CONTEXT)
+        return Constants.isVolumeLevelSupported()
+                && PreferenceManager.getDefaultSharedPreferences(Constants.CONTEXT)
                 .getBoolean(Constants.GLYPH_VOLUME_LEVEL_ENABLE, false) && isGlyphEnabled();
     }
 
